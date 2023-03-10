@@ -3,6 +3,7 @@
     require_once 'CarFactory.php';
     require_once 'MyClass.php';
     require_once 'factory.php';
+    require_once 'Race.php';
 
     $f1Factory = new F1Factory();
     $sport_model = $f1Factory->createCars();
@@ -10,6 +11,10 @@
     $twingoFactory = new Twingofactory();
     $dayli_model = $twingoFactory->createCars();
     $dayli_engine = $twingoFactory->createEngines();
+
+    $course1 = new Race();
+    $course1->start(new F1Factory());
+    $course1->start(new TwingoFactory());
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +26,7 @@
     <title>Abstract Factory Example</title>
 </head>
 <body>
-    <div>Just created a new <?php echo $sport_model->getType()." ".$sport_engine->getType(); ?></div>
-    <div>Just created a new <?php echo $dayli_model->getType()." ".$dayli_engine->getType(); ?></div>
+    <div>Just created a new <?php echo     $course1->start(new F1Factory());; ?></div>
+    <div>Just created a new <?php echo    $course1->start(new TwingoFactory());; ?></div>
 </body>
 </html>
